@@ -175,25 +175,6 @@ function showReels() {
 
 showReels();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    let video = entry.target;
-    let playBtn = video.parentElement.querySelector(".play-btn");
-
-    if (entry.isIntersecting) {
-      video.play();
-      playBtn.style.display = "none";
-    } else {
-      video.pause();
-      playBtn.style.display = "flex";
-    }
-  });
-});
-
-document.querySelectorAll("video").forEach((video) => {
-  observer.observe(video);
-});
-
 allReels.addEventListener("click", (evt) => {
   if (evt.target.className === "like") {
     let index = evt.target.id;
